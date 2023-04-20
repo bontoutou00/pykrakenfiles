@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pykrakenfiles",
-    version="0.0.1",
+    version="0.0.2",
     author="bontoutou",
     description="Krakenfiles upload API wrapper",
     long_description=long_description,
@@ -23,5 +23,10 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.7",
-    install_requires=['requests', 'tqdm', 'requests_toolbelt']
+    install_requires=['requests', 'tqdm', 'requests_toolbelt', 'pyyAML'],
+    entry_points={
+        "console_scripts":
+            ["pykrakenfiles = pykrakenfiles.cli:main",
+             "pykrakenfiles-list = pykrakenfiles.cli:list"]
+    },
 )
